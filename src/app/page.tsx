@@ -87,12 +87,12 @@ const ServiceIcon = ({ type }: { type: string }) => {
 
 export default function Home() {
   const services = [
-    { name: "Bröllop", type: "wedding", image: "/flower/bröllop.JPG", description: "Romantiska arrangemang för din speciella dag" },
-    { name: "Buketter & Arrangemang", type: "bouquet", image: "/flower/bukett .JPG", description: "För födelsedagar, anniversarier och alla tillfällen" },
+    { name: "Bröllop", type: "wedding", image: "/flower/brollop.JPG", description: "Romantiska arrangemang för din speciella dag" },
+    { name: "Buketter & Arrangemang", type: "bouquet", image: "/flower/bukett.JPG", description: "För födelsedagar, anniversarier och alla tillfällen" },
     { name: "Begravningar", type: "funeral", image: "/flower/begravning.JPG", description: "Vackra arrangemang, kransar och buketter som hedrar minnen" },
-    { name: "Högtider", type: "holidays", image: "/flower/högtider.JPG", description: "Säsongsbetonade arrangemang för jul, påsk och midsommar" },
+    { name: "Högtider", type: "holidays", image: "/flower/hogtider.JPG", description: "Säsongsbetonade arrangemang för jul, påsk och midsommar" },
     { name: "Evenemang", type: "event", image: "/flower/evenemang.JPG", description: "Blomsterdekor för fester, mingel och företagsevent" },
-    { name: "Företag", type: "corporate", image: "/flower/företag.JPG", description: "Veckovisa leveranser och presentarrangemang" },
+    { name: "Företag", type: "corporate", image: "/flower/foretag.JPG", description: "Veckovisa leveranser och presentarrangemang" },
   ];
 
   return (
