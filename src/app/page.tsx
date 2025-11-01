@@ -136,7 +136,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
               <Image 
-                src="/flower/bild webbsida bröllop.jpeg"
+                src="/flower/brollop-gallery.jpeg"
                 alt="Bröllopsblommor"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
