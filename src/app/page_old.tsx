@@ -1,100 +1,6 @@
 import Image from 'next/image'
 
-const ServiceIcon = ({ type }: { type: string }) => {
-  const icons = {
-    wedding: (
-      <svg className="w-12 h-12 text-[#7A8B6F]" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-      </svg>
-    ),
-    funeral: (
-      <svg className="w-12 h-12 text-[#7A8B6F]" fill="currentColor" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="1"/>
-        <circle cx="12" cy="8" r="2"/>
-        <circle cx="8" cy="12" r="2"/>
-        <circle cx="16" cy="12" r="2"/>
-        <circle cx="12" cy="16" r="2"/>
-        <circle cx="10" cy="10" r="1.5" opacity="0.6"/>
-        <circle cx="14" cy="10" r="1.5" opacity="0.6"/>
-        <circle cx="10" cy="14" r="1.5" opacity="0.6"/>
-        <circle cx="14" cy="14" r="1.5" opacity="0.6"/>
-      </svg>
-    ),
-    bouquet: (
-      <svg className="w-12 h-12 text-[#7A8B6F]" fill="currentColor" viewBox="0 0 24 24">
-        {/* Pion blomma - oregelbundna kronblad */}
-        <ellipse cx="11" cy="7" rx="3" ry="2.5" opacity="0.4"/>
-        <ellipse cx="13" cy="7.5" rx="2.8" ry="2.3" opacity="0.4"/>
-        <ellipse cx="12" cy="9" rx="2.5" ry="2" opacity="0.5"/>
-        <ellipse cx="10.5" cy="8" rx="2" ry="2.5" opacity="0.5" transform="rotate(-30 10.5 8)"/>
-        <ellipse cx="13.5" cy="8.5" rx="2" ry="2.3" opacity="0.5" transform="rotate(25 13.5 8.5)"/>
-        <ellipse cx="12" cy="6.5" rx="2.2" ry="1.8" opacity="0.6" transform="rotate(-10 12 6.5)"/>
-        <ellipse cx="11.5" cy="9.5" rx="1.8" ry="2" opacity="0.6" transform="rotate(15 11.5 9.5)"/>
-        {/* Centrum */}
-        <circle cx="12" cy="8" r="1.2"/>
-        <circle cx="11.5" cy="7.8" r="0.5" opacity="0.7"/>
-        <circle cx="12.5" cy="8.2" r="0.5" opacity="0.7"/>
-        {/* Stjälk - lätt böjd */}
-        <path d="M12 10c0 2-0.5 4-0.8 6c-0.2 1.5-0.2 3-0.2 4" stroke="currentColor" strokeWidth="1.8" fill="none"/>
-        {/* Blad - oregelbundna */}
-        <path d="M11 14c-1.5 0.5-2.5 1.5-3 2.5c-0.3 0.6-0.3 1-0.2 1.2" stroke="currentColor" strokeWidth="1.3" fill="none" opacity="0.75"/>
-        <path d="M11.5 17c1.2 0.8 2 1.8 2.5 2.8" stroke="currentColor" strokeWidth="1.3" fill="none" opacity="0.75"/>
-      </svg>
-    ),
-    holidays: (
-      <svg className="w-12 h-12 text-[#7A8B6F]" fill="currentColor" viewBox="0 0 24 24">
-        <circle cx="12" cy="8" r="3"/>
-        <ellipse cx="8" cy="9" rx="2" ry="2.5" opacity="0.7"/>
-        <ellipse cx="16" cy="9" rx="2" ry="2.5" opacity="0.7"/>
-        <ellipse cx="10" cy="12" rx="1.5" ry="2" opacity="0.6"/>
-        <ellipse cx="14" cy="12" rx="1.5" ry="2" opacity="0.6"/>
-        <path d="M12 11v8M10 14l-2 2M14 14l2 2M10 18l-1 2M14 18l1 2" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-        <circle cx="6" cy="14" r="1" opacity="0.5"/>
-        <circle cx="18" cy="14" r="1" opacity="0.5"/>
-      </svg>
-    ),
-    event: (
-      <svg className="w-12 h-12 text-[#7A8B6F]" fill="currentColor" viewBox="0 0 24 24">
-        <circle cx="6" cy="6" r="2.5"/>
-        <circle cx="18" cy="6" r="2.5"/>
-        <circle cx="6" cy="18" r="2.5"/>
-        <circle cx="18" cy="18" r="2.5"/>
-        <circle cx="12" cy="12" r="3"/>
-        <path d="M8 8c1 1 2 2 4 4m0 0c2-2 3-3 4-4M12 12c-2 2-3 3-4 4m4-4c2 2 3 3 4 4" stroke="currentColor" strokeWidth="1" fill="none"/>
-        <circle cx="12" cy="4" r="1.5" opacity="0.6"/>
-        <circle cx="12" cy="20" r="1.5" opacity="0.6"/>
-        <circle cx="4" cy="12" r="1.5" opacity="0.6"/>
-        <circle cx="20" cy="12" r="1.5" opacity="0.6"/>
-      </svg>
-    ),
-    corporate: (
-      <svg className="w-12 h-12 text-[#7A8B6F]" fill="currentColor" viewBox="0 0 24 24">
-        <circle cx="12" cy="10" r="3.5"/>
-        <circle cx="7" cy="13" r="2" opacity="0.7"/>
-        <circle cx="17" cy="13" r="2" opacity="0.7"/>
-        <circle cx="9" cy="17" r="1.5" opacity="0.6"/>
-        <circle cx="15" cy="17" r="1.5" opacity="0.6"/>
-        <path d="M12 13.5v2M10 15.5l-1 1.5M14 15.5l1 1.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-        <circle cx="12" cy="6" r="1.2" opacity="0.5"/>
-        <circle cx="8" cy="9" r="1" opacity="0.5"/>
-        <circle cx="16" cy="9" r="1" opacity="0.5"/>
-      </svg>
-    ),
-  };
-  
-  return <div className="text-[#7A8B6F]">{icons[type as keyof typeof icons]}</div>;
-};
-
 export default function Home() {
-  const services = [
-    { name: "Bröllop", type: "wedding", image: "/flower/bröllop.JPG", description: "Romantiska arrangemang för din speciella dag" },
-    { name: "Buketter & Arrangemang", type: "bouquet", image: "/flower/bukett .JPG", description: "För födelsedagar, anniversarier och alla tillfällen" },
-    { name: "Begravningar", type: "funeral", image: "/flower/begravning.JPG", description: "Vackra arrangemang, kransar och buketter som hedrar minnen" },
-    { name: "Högtider", type: "holidays", image: "/flower/högtider.JPG", description: "Säsongsbetonade arrangemang för jul, påsk och midsommar" },
-    { name: "Evenemang", type: "event", image: "/flower/evenemang.JPG", description: "Blomsterdekor för fester, mingel och företagsevent" },
-    { name: "Företag", type: "corporate", image: "/flower/företag.JPG", description: "Veckovisa leveranser och presentarrangemang" },
-  ];
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -175,16 +81,18 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, i) => (
+            {[
+              { name: "Bröllop", icon: "🌹", description: "Romantiska arrangemang för din speciella dag" },
+              { name: "Begravningar", icon: "🤍", description: "Värdiga kransar och buketter som hedrar minnen" },
+              { name: "Buketter & Arrangemang", icon: "�", description: "För födelsedagar, anniversarier och alla tillfällen" },
+              { name: "Högtider", icon: "✨", description: "Säsongsbetonade arrangemang för jul, påsk och midsommar" },
+              { name: "Evenemang", icon: "�", description: "Blomsterdekor för fester, mingel och företagsevent" },
+              { name: "Företag", icon: "�", description: "Veckovisa leveranser och presentarrangemang" },
+            ].map((service, i) => (
               <div key={i} className="romantic-card rounded-lg overflow-hidden group cursor-pointer hover:border-[#A8B69B]">
                 <div className="p-8 text-center">
-                  <div className="relative w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Image 
-                      src={service.image}
-                      alt={service.name}
-                      fill
-                      className="object-cover"
-                    />
+                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#A8B69B]/20 to-[#D4B5A8]/20 flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-300">
+                    {service.icon}
                   </div>
                   <h3 className="text-2xl handwritten text-[#4A4A48] mb-2">{service.name}</h3>
                   <p className="text-[#4A4A48]/60 text-sm leading-relaxed mb-4">{service.description}</p>
@@ -279,3 +187,4 @@ export default function Home() {
     </div>
   );
 }
+

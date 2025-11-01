@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  phone     String?
+  address   String?
+  city      String?
+  postalCode String?
+  country   String   @default("Sweden")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  orders    Order[]
+  reviews   Review[]
+}
+
+model Flower {
+  id          String      @id @default(cuid())
+  name        String
+  description String
+  price       Float
+  category    String      // e.g., "Bouquet", "Arrangement", "Single Stem"
+  imageUrl    String?
+  availability Boolean    @default(true)
+  stockCount  Int        @default(0)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  orderItems  OrderItem[]
+  reviews     Review[]
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  customerId      String
+  customer        Customer    @relation(fields: [customerId], references: [id])
+  orderDate       DateTime    @default(now())
+  deliveryDate    DateTime?
+  deliveryAddress String
+  deliveryCity    String
+  deliveryPostal  String
+  status          String      @default("pending") // pending, confirmed, delivered, cancelled
+  totalAmount     Float
+  notes           String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  orderItems      OrderItem[]
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  flowerId  String
+  flower    Flower   @relation(fields: [flowerId], references: [id])
+  quantity  Int
+  price     Float    // Price at time of order
+  createdAt DateTime @default(now())
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  customerId String
+  customer   Customer @relation(fields: [customerId], references: [id])
+  flowerId   String?
+  flower     Flower?  @relation(fields: [flowerId], references: [id])
+  rating     Int      // 1-5 stars
+  comment    String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
