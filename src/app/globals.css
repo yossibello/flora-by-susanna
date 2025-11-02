@@ -12,6 +12,16 @@
   --soft-white: #FEFDFB;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
 body {
   font-family: var(--font-montserrat), sans-serif;
   background-color: var(--cream);

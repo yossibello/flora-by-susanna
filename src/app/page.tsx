@@ -87,8 +87,8 @@ const ServiceIcon = ({ type }: { type: string }) => {
 
 export default function Home() {
   const services = [
-    { name: "Bröllop", type: "wedding", image: "/flower/brollop.JPG", description: "Romantiska arrangemang för din speciella dag" },
-    { name: "Buketter & Arrangemang", type: "bouquet", image: "/flower/bukett.JPG", description: "För födelsedagar, anniversarier och alla tillfällen" },
+    { name: "Bröllop", type: "wedding", image: "/flower/brollop.JPG", description: "Allt det vackra för er speciella dag - Brudbukett, Corsage och Arrangemang" },
+    { name: "Buketter & Arrangemang", type: "bouquet", image: "/flower/bukett.JPG", description: "För födelsedagar, en hälsning och för livets alla tillfällen" },
     { name: "Begravningar", type: "funeral", image: "/flower/begravning.JPG", description: "Vackra arrangemang, kransar och buketter som hedrar minnen" },
     { name: "Högtider", type: "holidays", image: "/flower/hogtider.JPG", description: "Säsongsbetonade arrangemang för jul, påsk och midsommar" },
     { name: "Evenemang", type: "event", image: "/flower/evenemang.JPG", description: "Blomsterdekor för fester, mingel och företagsevent" },
@@ -96,7 +96,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[#F5F1E8] via-white to-white overflow-hidden">
         <div className="absolute inset-0">
@@ -109,21 +109,22 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#F5F1E8]/60 via-white/70 to-white"></div>
         </div>
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <p className="text-[#5A6B4D] text-sm uppercase tracking-[0.3em] mb-6 font-bold">Florist i Brottby</p>
-          <h1 className="text-7xl md:text-8xl mb-6 text-[#4A4A48] leading-tight">
-            <span className="handwritten block text-[#7A8B6F] text-8xl md:text-9xl">Blommor från Hjärtat</span>
-            <span className="text-5xl md:text-6xl font-light">Skapade i Min Blomsterstudio</span>
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+          <p className="text-[#5A6B4D] text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-4 sm:mb-6 font-bold">Florist i Stockholm</p>
+          <h1 className="text-5xl sm:text-7xl md:text-8xl mb-4 sm:mb-6 text-[#4A4A48] leading-tight">
+            <span className="handwritten block text-[#7A8B6F] text-6xl sm:text-8xl md:text-9xl">Blommor från Hjärtat</span>
+            <span className="text-3xl sm:text-5xl md:text-6xl font-light">Skapade från min Blomsterstudio</span>
           </h1>
-          <p className="text-xl text-[#3D3D3D] mb-12 leading-relaxed max-w-2xl mx-auto font-normal">
+          <p className="text-base sm:text-xl text-[#3D3D3D] mb-8 sm:mb-12 leading-relaxed max-w-2xl mx-auto font-normal">
             Från min studio på gården i Brottby skapar jag personliga och kreativa blomsterarrangemang/buketter 
-            med hantverksmässig fingerkänsla och blomsterglädje. Varje bukett/arrangemang är unik och inspirerad av just dina önskemål.
+            med hantverksmässig fingerkänsla och blomsterglädje. Varje bukett/arrangemang är unik och inspirerad av just dina önskemål. 
+            Med flexibel leverans eller upphämtning runtom Stockholm.
           </p>
-          <div className="flex gap-6 justify-center">
-            <a href="/tjanster#kontakt" className="px-10 py-4 bg-[#A8B69B] text-white rounded-full hover:bg-[#8B956D] transition-all shadow-lg hover:shadow-xl text-sm uppercase tracking-wider">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+            <a href="/tjanster#kontakt" className="px-8 sm:px-10 py-3 sm:py-4 bg-[#A8B69B] text-white rounded-full hover:bg-[#8B956D] transition-all shadow-lg hover:shadow-xl text-xs sm:text-sm uppercase tracking-wider">
               Beställ Nu
             </a>
-            <a href="/tjanster" className="px-10 py-4 border-2 border-[#A8B69B] text-[#8B956D] rounded-full hover:bg-[#A8B69B] hover:text-white transition-all text-sm uppercase tracking-wider">
+            <a href="/tjanster" className="px-8 sm:px-10 py-3 sm:py-4 border-2 border-[#A8B69B] text-[#8B956D] rounded-full hover:bg-[#A8B69B] hover:text-white transition-all text-xs sm:text-sm uppercase tracking-wider">
               Se Mina Tjänster
             </a>
           </div>
@@ -131,9 +132,33 @@ export default function Home() {
       </section>
 
       {/* Image Gallery Section */}
-      <section className="py-16 px-6 bg-gradient-to-b from-white to-[#F5F1E8]">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-white to-[#F5F1E8]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/bröllopcornelia1.JPG"
+                alt="Bröllopsblommor Cornelia"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/bröllopmarianna2.JPG"
+                alt="Bröllopsblommor Marianna"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/bröllopmarianne1.JPG"
+                alt="Bröllopsblommor Marianne"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
               <Image 
                 src="/flower/brollop-gallery.jpeg"
@@ -163,18 +188,18 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-24 px-6">
+      <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl text-[#000000] mb-4">
-              <span className="handwritten text-[#000000]">Mina</span> Blomstertjänster
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl text-[#000000] mb-4">
+              <span className="handwritten text-[#000000]">Mina</span> blomstertjänster
             </h2>
-            <p className="text-[#5A6B4D] max-w-2xl mx-auto text-lg font-semibold">
+            <p className="text-[#5A6B4D] max-w-2xl mx-auto text-base sm:text-lg font-semibold">
               Från bröllop till begravningar, högtider till vardagslyx - jag skapar arrangemang för alla tillfällen med stor omtanke och efter personliga önskemål
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, i) => (
               <div key={i} className="romantic-card rounded-lg overflow-hidden group cursor-pointer hover:border-[#A8B69B]">
                 <div className="p-8 text-center">
@@ -195,13 +220,41 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* Bröllopsbilder */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-16">
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/bröllop2.JPG"
+                alt="Bröllopsarrangemang 2"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/bröllopros.JPG"
+                alt="Bröllopsarrangemang med rosor"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/bröllopellinor.jpeg"
+                alt="Bröllopsarrangemang Ellinor"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* About Studio Section */}
-      <section className="py-24 bg-gradient-to-b from-white to-[#F5F1E8]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-white to-[#F5F1E8]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-16 items-center">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
               <Image 
                 src="/flower/FullSizeRender 3.jpg"
@@ -211,21 +264,21 @@ export default function Home() {
               />
             </div>
             <div>
-              <p className="text-[#8B956D] text-sm uppercase tracking-[0.3em] mb-4">Min Studio</p>
-              <h2 className="text-5xl text-[#4A4A48] mb-6">
-                <span className="handwritten text-[#D4B5A8] block text-6xl mb-2">Från Gården i Brottby</span>
-                Till Ditt Hem
+              <p className="text-[#8B956D] text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-3 sm:mb-4">Min Studio</p>
+              <h2 className="text-4xl sm:text-5xl text-[#4A4A48] mb-4 sm:mb-6">
+                <span className="handwritten text-[#D4B5A8] block text-5xl sm:text-6xl mb-2">Från gården i Brottby</span>
+                till blomsterglädje
               </h2>
-              <p className="text-[#4A4A48]/70 leading-relaxed mb-6 text-lg font-light">
-                Från min hemstudio på gården i Brottby skapar jag personliga och kreativa blomsterarrangemang 
-                med hantverksmässig känsla. Här har jag lugnet och inspirationen att forma varje detalj 
-                med omsorg och passion.
+              <p className="text-[#4A4A48]/70 leading-relaxed mb-4 sm:mb-6 text-base sm:text-lg font-light">
+                Från min hemstudio på gården i Brottby som ligger norr om Stockholm, skapar jag personliga och kreativa blomsterarrangemang 
+                med hantverket i stor fokus. Här har jag lugnet och inspirationen att forma varje detalj 
+                med omsorg och passion. Varje blomma och material är noga utvalt, allt med varm hand och känsla.
               </p>
-              <p className="text-[#4A4A48]/70 leading-relaxed mb-8 text-lg font-light">
+              <p className="text-[#4A4A48]/70 leading-relaxed mb-6 sm:mb-8 text-base sm:text-lg font-light">
                 Istället för en traditionell butik erbjuder jag personlig service där dina önskemål 
-                är min inspiration. Tillsammans skapar vi blomsterarrangemang som speglar just dina drömmar.
+                är min inspiration. Tillsammans skapar vi och designar blomster som speglar just dina drömmar.
               </p>
-              <a href="/about" className="inline-block text-[#A8B69B] hover:text-[#8B956D] transition-colors text-sm uppercase tracking-wider border-b-2 border-[#A8B69B] pb-1">
+              <a href="/about" className="inline-block text-[#A8B69B] hover:text-[#8B956D] transition-colors text-xs sm:text-sm uppercase tracking-wider border-b-2 border-[#A8B69B] pb-1">
                 Läs Mer Om Mig →
               </a>
             </div>
@@ -234,15 +287,15 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 px-6">
+      <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl text-[#4A4A48] mb-4">
-              <span className="handwritten text-[#A8B69B]">Så Enkelt</span> Beställer Du
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-4xl sm:text-5xl text-[#4A4A48] mb-4">
+              <span className="handwritten text-[#A8B69B]">Så enkelt</span> beställer du
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
             {[
               { step: "1", title: "Kontakta Mig", description: "Fyll i formuläret eller ring mig direkt" },
               { step: "2", title: "Berätta Din Vision", description: "Dela dina önskemål, färger och stil" },
@@ -253,8 +306,8 @@ export default function Home() {
                 <div className="w-16 h-16 bg-[#A8B69B] text-white rounded-full flex items-center justify-center text-2xl font-light mx-auto mb-4">
                   {item.step}
                 </div>
-                <h3 className="text-xl handwritten text-[#D4B5A8] mb-2">{item.title}</h3>
-                <p className="text-[#4A4A48]/70 text-sm leading-relaxed">{item.description}</p>
+                <h3 className="text-xl handwritten text-[#8B956D] mb-2 font-semibold">{item.title}</h3>
+                <p className="text-[#4A4A48] text-base leading-relaxed font-medium">{item.description}</p>
               </div>
             ))}
           </div>
@@ -262,16 +315,16 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-b from-[#F5F1E8] to-[#A8B69B]/10 text-center px-6">
+      <section className="py-16 sm:py-24 bg-gradient-to-b from-[#F5F1E8] to-[#A8B69B]/10 text-center px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-6xl text-[#4A4A48] mb-6">
-            <span className="handwritten text-[#D4B5A8] block text-7xl mb-3">Redo att Beställa?</span>
+          <h2 className="text-4xl sm:text-6xl text-[#4A4A48] mb-4 sm:mb-6">
+            <span className="handwritten text-[#D4B5A8] block text-5xl sm:text-7xl mb-3">Redo att Beställa?</span>
             Låt Oss Skapa Något Vackert
           </h2>
-          <p className="text-[#4A4A48]/70 text-xl mb-10 font-light">
+          <p className="text-[#4A4A48]/70 text-base sm:text-xl mb-8 sm:mb-10 font-light">
             Kontakta mig idag så pratar vi om dina önskemål och skapar det perfekta blomsterarrangemanget för dig
           </p>
-          <a href="/tjanster#kontakt" className="inline-block px-12 py-5 bg-[#D4B5A8] text-white rounded-full hover:bg-[#C9A79E] transition-all shadow-lg hover:shadow-xl text-sm uppercase tracking-wider">
+          <a href="/tjanster#kontakt" className="inline-block px-10 sm:px-12 py-4 sm:py-5 bg-[#D4B5A8] text-white rounded-full hover:bg-[#C9A79E] transition-all shadow-lg hover:shadow-xl text-xs sm:text-sm uppercase tracking-wider">
             Kontakta Mig Nu
           </a>
         </div>
