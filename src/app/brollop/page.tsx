@@ -5,7 +5,7 @@ export default function BrollopPage() {
   const brollopBilder = [
     { src: "/flower/bröllop1.JPG", alt: "Romantisk brudbukett" },
     { src: "/flower/bröllop2.JPG", alt: "Bröllopsdekorationer" },
-    { src: "/flower/bröllopellinor.jpeg", alt: "Brudbukett Ellinor" },
+    { src: "/flower/brölloppuder.JPG", alt: "Bröllop puder arrangemang" },
     { src: "/flower/brollop-gallery.jpeg", alt: "Bröllopsgalleri" },
     { src: "/flower/bröllopros.JPG", alt: "Bröllopsarrangemang med rosor" },
     { src: "/flower/brölloplantligt.jpg", alt: "Lantligt bröllopsarrangemang" },
@@ -22,16 +22,16 @@ export default function BrollopPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/flower/bröllop1.JPG')",
+            backgroundImage: "url('/flower/bröllopcornelia1.JPG')",
             opacity: 0.25
           }}
         />
         <div className="relative z-10 max-w-3xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-serif mb-6 text-[#7A8B6F]" style={{ textShadow: '2px 2px 4px rgba(255,255,255,0.9)' }}>
+          <h1 className="text-6xl sm:text-7xl md:text-8xl font-serif mb-6 text-[#7A8B6F]">
             Ditt Drömbröllop
           </h1>
-          <p className="text-xl md:text-2xl mb-8 font-light text-[#8B956D]" style={{ textShadow: '1px 1px 3px rgba(255,255,255,0.9)' }}>
-            Låt mig skapa blommor som berättar er unika kärlekshistoria - från första mötet till ja-ordet
+          <p className="text-base sm:text-xl text-black mb-8 sm:mb-12 leading-relaxed max-w-2xl mx-auto font-normal" style={{ textShadow: '2px 2px 5px rgba(255,255,255,0.95)' }}>
+            Oavsett om ni drömmer om ett helt skräddarsytt blomsterkoncept för er stora dag eller enbart önskar en vacker brudbukett – jag lyssnar på era visioner och skapar arrangemang som speglar er kärlek. Varje blomma väljs noggrant ut för att fånga er personlighet och den romantiska känsla ni vill att ni och era gäster ska minnas för alltid. Allt med enorm omtanke, varm hand och design.
           </p>
           <a 
             href="#kontakt" 
@@ -55,15 +55,16 @@ export default function BrollopPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div className="romantic-card p-8 rounded-2xl">
-              <div className="w-16 h-16 bg-[#D4B5A8]/20 rounded-full flex items-center justify-center mb-6">
-                <span className="text-3xl">💐</span>
-              </div>
-              <h3 className="text-2xl handwritten text-[#8B956D] mb-3">Helhetskonceptet</h3>
+            <div className="romantic-card p-8 rounded-2xl bg-gradient-to-br from-[#F5F1E8] to-[#A8B69B]/5">
+              <h3 className="text-2xl handwritten text-[#4A4A48] mb-6 text-center">Helhetskonceptet</h3>
               <p className="text-[#4A4A48]/70 leading-relaxed mb-4">
                 Jag tar hand om alla blommor för hela er bröllopsdag – från ceremoni till fest. Tillsammans skapar vi en röd tråd i färger, stil och känsla som löper genom varje detalj.
               </p>
               <ul className="space-y-2 text-[#4A4A48]/70">
+                <li className="flex items-start">
+                  <span className="text-[#8B956D] mr-2">✓</span>
+                  <span>Brudbukett, tärnbuketter och Corsage</span>
+                </li>
                 <li className="flex items-start">
                   <span className="text-[#8B956D] mr-2">✓</span>
                   <span>Ceremoniblommor och altardekorationer</span>
@@ -83,13 +84,10 @@ export default function BrollopPage() {
               </ul>
             </div>
 
-            <div className="romantic-card p-8 rounded-2xl">
-              <div className="w-16 h-16 bg-[#D4B5A8]/20 rounded-full flex items-center justify-center mb-6">
-                <span className="text-3xl">👰</span>
-              </div>
-              <h3 className="text-2xl handwritten text-[#8B956D] mb-3">Brudblommor</h3>
+            <div className="romantic-card p-8 rounded-2xl bg-gradient-to-br from-[#D4B5A8]/15 to-[#F5F1E8]">
+              <h3 className="text-2xl handwritten text-[#4A4A48] mb-6 text-center">Brudblommor</h3>
               <p className="text-[#4A4A48]/70 leading-relaxed mb-4">
-                Om ni enbart önskar fokusera på brudens och brudtärnornas blommor, designar jag personliga buketter som kompletterar er stil perfekt.
+                Om ni enbart önskar beställa brudens och brudtärnornas blommor, designar jag personliga buketter som kompletterar er stil med stor omtanke.
               </p>
               <ul className="space-y-2 text-[#4A4A48]/70">
                 <li className="flex items-start">
@@ -102,13 +100,82 @@ export default function BrollopPage() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#8B956D] mr-2">✓</span>
-                  <span>Corsage för brudgum och föräldrar</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#8B956D] mr-2">✓</span>
                   <span>Knapphålsblommor för brudgum och marskalkar</span>
                 </li>
               </ul>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="text-center">
+            <a 
+              href="#kontakt" 
+              className="inline-block bg-[#8B956D] text-white px-8 py-3 rounded hover:bg-[#7A8B6F] transition-colors shadow-lg"
+            >
+              Boka ett kostnadsfritt möte
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Inspiration från tidigare bröllop */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-[#F5F1E8] to-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl text-[#4A4A48] mb-4">
+              <span className="handwritten text-[#8B956D]">Inspiration</span> från tidigare bröllop
+            </h2>
+          </div>
+
+          {/* Bröllopsbilder grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/bröllopcorneiliatvå.JPG"
+                alt="Cornelia bröllopsarrangemang"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/bröllopcorneliagrupp.JPG"
+                alt="Cornelia bröllopsgrupp"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/brölloppcorn.JPG"
+                alt="Bröllop Cornelia arrangemang"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/brudrosa.JPG"
+                alt="Rosa brudbukett"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/pionvit.JPG"
+                alt="Vita pioner"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
+              <Image 
+                src="/flower/brudvitlime.jpeg"
+                alt="Vit brudbukett med lime"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
           </div>
         </div>
@@ -119,7 +186,7 @@ export default function BrollopPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl text-[#4A4A48] mb-4">
-              <span className="handwritten text-[#D4B5A8]">Så skapar vi</span> ert drömbrölop
+              <span className="handwritten text-[#D4B5A8]">Hur vi skapar</span> ert drömbröllop
             </h2>
           </div>
 
@@ -185,33 +252,62 @@ export default function BrollopPage() {
         </div>
       </section>
 
-      {/* Stilar */}
+      {/* Kundrecensioner */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-white to-[#F5F1E8]">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl text-[#4A4A48] mb-4">
-              <span className="handwritten text-[#8B956D]">Er stil,</span> era blommor
+              <span className="handwritten text-[#8B956D]">Vad säger</span> våra brudpar?
             </h2>
+            <p className="text-[#4A4A48]/70 text-lg max-w-2xl mx-auto">
+              Läs vad tidigare brudpar säger om sina blommor och upplevelsen
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="romantic-card p-8 rounded-2xl text-center">
-              <h3 className="text-2xl handwritten text-[#D4B5A8] mb-4">Romantiskt & Klassiskt</h3>
-              <p className="text-[#4A4A48]/70 leading-relaxed">
-                Mjuka rosor, pioner och pastellfärger för den tidlösa eleganta stilen
+            <div className="romantic-card p-8 rounded-2xl bg-gradient-to-br from-[#F5F1E8] to-[#D4B5A8]/10">
+              <div className="flex items-center mb-4">
+                <div className="flex text-[#D4B5A8] text-xl">
+                  ⭐⭐⭐⭐⭐
+                </div>
+              </div>
+              <p className="text-[#4A4A48]/80 leading-relaxed mb-6 italic">
+                "Susanna, Stooort tack för all din hjälp! Buketterna höll hela dagen och allt var perfekt ❤️ Tack för otroligt bra service (!!!) och för att du hjälpte till att få våra stora dag perfekt 🌸 Blommorna var magiska"
               </p>
+              <div className="text-sm">
+                <p className="font-semibold text-[#8B956D]">— Cornelia & Gustaf</p>
+                <p className="text-[#4A4A48]/60">Bröllop augusti 2025</p>
+              </div>
             </div>
-            <div className="romantic-card p-8 rounded-2xl text-center">
-              <h3 className="text-2xl handwritten text-[#D4B5A8] mb-4">Lantligt & Bohemiskt</h3>
-              <p className="text-[#4A4A48]/70 leading-relaxed">
-                Vildblommor, eukalyptus och naturliga färger för den avslappnade känslan
+
+            <div className="romantic-card p-8 rounded-2xl bg-gradient-to-br from-[#F5F1E8] to-[#A8B69B]/5">
+              <div className="flex items-center mb-4">
+                <div className="flex text-[#D4B5A8] text-xl">
+                  ⭐⭐⭐⭐⭐
+                </div>
+              </div>
+                <p className="text-[#4A4A48]/80 leading-relaxed mb-6 italic text-sm">
+                  "Tusen, tusen, tusen tack för all MAGISKA blommor igår!!!!!!!! ❤️❤️❤️ De förgyllde verkligen vår stora dag och var en riktig snackis bland gästerna - alla var helt betagna av dem. Jag ÄÄÄLSKADE min bukett, blev precis som jag hade drömt om MEN jag hade aldrig kunnat hoppas att min dröm skulle kunna bli verklighet så exakt och med extra flair!!! TACK!!!! Vilket hantverk, konstverk, med känsla all-around. TACK, TACK, TACK!! 🥰🥰🥰 Du är bäst!!"
               </p>
+              <div className="text-sm">
+                <p className="font-semibold text-[#8B956D]">— Marianna & Eric</p>
+                <p className="text-[#4A4A48]/60">Bröllop September 2024</p>
+              </div>
             </div>
-            <div className="romantic-card p-8 rounded-2xl text-center">
-              <h3 className="text-2xl handwritten text-[#D4B5A8] mb-4">Modernt & Minimalistiskt</h3>
-              <p className="text-[#4A4A48]/70 leading-relaxed">
-                Strukturerade arrangemang med fokus på form och få, välvalda blommor
+
+            <div className="romantic-card p-8 rounded-2xl bg-gradient-to-br from-[#F5F1E8] to-[#D4B5A8]/10">
+              <div className="flex items-center mb-4">
+                <div className="flex text-[#D4B5A8] text-xl">
+                  ⭐⭐⭐⭐⭐
+                </div>
+              </div>
+              <p className="text-[#4A4A48]/80 leading-relaxed mb-6 italic">
+                "Från första mötet till vår bröllopsdag - allt var perfekt planerat. Susanna är så professionell och kreativ. Våra blommor blev mer vackra än vi kunnat drömma om!"
               </p>
+              <div className="text-sm">
+                <p className="font-semibold text-[#8B956D]">— Ellinor & Marcus</p>
+                <p className="text-[#4A4A48]/60">Bröllop juni 2024</p>
+              </div>
             </div>
           </div>
         </div>
