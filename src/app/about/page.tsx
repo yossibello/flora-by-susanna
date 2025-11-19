@@ -251,7 +251,7 @@ export default function AboutPage() {
       <section className="py-20 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl handwritten text-[#7A6B5D] mb-6">
-            Hör av Dig – Jag Lyssnar på Dina Önskemål
+            Låt oss börja planera dina blommor
           </h2>
           <p className="text-[#6B5B4F] text-base sm:text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
             Jag ser fram emot att höra om dina idéer, färger och drömmar. Oavsett om du vill beställa en bukett, planera bröllopsblommor eller skapa något vackert till ett event – jag finns här för att hjälpa dig.

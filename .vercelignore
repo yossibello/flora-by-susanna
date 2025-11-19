@@ -1,0 +1,4 @@
+# Ignore old backup files
+**/*_old.*
+**/*old.*
+*.old.*
