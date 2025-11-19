@@ -79,3 +79,34 @@ model Review {
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
+
+model Inquiry {
+  id              String   @id @default(cuid())
+  name            String
+  email           String
+  phone           String?
+  inquiryType     String   // bukett, brollop, begravning, foretag, etc.
+  preferredDate   String?
+  budget          String?
+  colors          String?
+  style           String?
+  deliveryMethod  String?
+  deliveryAddress String?
+  message         String
+  // Wedding specific
+  weddingDate     String?
+  venue           String?
+  guestCount      String?
+  // Funeral specific
+  funeralDate     String?
+  funeralType     String?
+  consultation    String?
+  // Business specific
+  companyName     String?
+  contactPerson   String?
+  serviceType     String?
+  deliveryInterval String?
+  status          String   @default("new") // new, contacted, completed
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

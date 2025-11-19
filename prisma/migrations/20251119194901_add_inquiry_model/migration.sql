@@ -1,0 +1,30 @@
+-- CreateTable
+CREATE TABLE "Inquiry" (
+    "id" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "phone" TEXT,
+    "inquiryType" TEXT NOT NULL,
+    "preferredDate" TEXT,
+    "budget" TEXT,
+    "colors" TEXT,
+    "style" TEXT,
+    "deliveryMethod" TEXT,
+    "deliveryAddress" TEXT,
+    "message" TEXT NOT NULL,
+    "weddingDate" TEXT,
+    "venue" TEXT,
+    "guestCount" TEXT,
+    "funeralDate" TEXT,
+    "funeralType" TEXT,
+    "consultation" TEXT,
+    "companyName" TEXT,
+    "contactPerson" TEXT,
+    "serviceType" TEXT,
+    "deliveryInterval" TEXT,
+    "status" TEXT NOT NULL DEFAULT 'new',
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Inquiry_pkey" PRIMARY KEY ("id")
+);
