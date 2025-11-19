@@ -43,9 +43,11 @@ export default function RootLayout({
               </Link>
               <div className="flex flex-wrap justify-center sm:justify-end space-x-4 sm:space-x-8 items-center">
                 <Link href="/" className="text-[#4A4A48] hover:text-[#A8B69B] transition-colors text-xs sm:text-sm uppercase tracking-wider">Hem</Link>
+                <Link href="/bestall" className="text-[#4A4A48] hover:text-[#A8B69B] transition-colors text-xs sm:text-sm uppercase tracking-wider">Beställ Bukett</Link>
                 <Link href="/brollop" className="text-[#4A4A48] hover:text-[#A8B69B] transition-colors text-xs sm:text-sm uppercase tracking-wider">Bröllop</Link>
+                <Link href="/begravning" className="text-[#4A4A48] hover:text-[#A8B69B] transition-colors text-xs sm:text-sm uppercase tracking-wider">Begravning</Link>
                 <Link href="/tjanster" className="text-[#4A4A48] hover:text-[#A8B69B] transition-colors text-xs sm:text-sm uppercase tracking-wider">Tjänster</Link>
-                <Link href="/about" className="text-[#4A4A48] hover:text-[#A8B69B] transition-colors text-xs sm:text-sm uppercase tracking-wider">Om Oss</Link>
+                <Link href="/about" className="text-[#4A4A48] hover:text-[#A8B69B] transition-colors text-xs sm:text-sm uppercase tracking-wider">Om Mig</Link>
                 <Link href="/tjanster#kontakt" className="px-4 sm:px-6 py-2 bg-[#A8B69B] text-white rounded-full hover:bg-[#8B956D] transition-all text-xs uppercase tracking-wider whitespace-nowrap">Beställ</Link>
               </div>
             </div>

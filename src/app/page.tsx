@@ -87,9 +87,9 @@ const ServiceIcon = ({ type }: { type: string }) => {
 
 export default function Home() {
   const services = [
-    { name: "Bröllop", type: "wedding", image: "/flower/brollop.JPG", description: "Allt det vackra för er speciella dag - Brudbukett, Corsage och Arrangemang" },
-    { name: "Buketter & Arrangemang", type: "bouquet", image: "/flower/bukett.JPG", description: "För födelsedagar, en hälsning och för livets alla tillfällen" },
-    { name: "Begravningar", type: "funeral", image: "/flower/begravning.JPG", description: "Vackra arrangemang, kransar och buketter som hedrar minnen" },
+    { name: "Bröllop", type: "wedding", image: "/flower/brollop.JPG", description: "Allt det vackra för er speciella dag - Brudbukett, Corsage och Arrangemang\nPrisexempel: Brudbukett 900kr - 3200kr" },
+    { name: "Buketter & Arrangemang", type: "bouquet", image: "/flower/bukett.JPG", description: "För födelsedagar, en hälsning och för livets alla tillfällen\nPrisexempel: Bukett 500kr - 2000kr" },
+    { name: "Begravningar", type: "funeral", image: "/flower/begravning.JPG", description: "Vackra arrangemang, kransar och buketter som hedrar minnen\nPrisexempel: 500kr - 3500kr" },
     { name: "Högtider", type: "holidays", image: "/flower/hogtider.JPG", description: "Säsongsbetonade arrangemang för jul, påsk och midsommar" },
     { name: "Evenemang", type: "event", image: "/flower/evenemang.JPG", description: "Blomsterdekor för fester, mingel och företagsevent" },
     { name: "Företag", type: "corporate", image: "/flower/foretag.JPG", description: "Veckovisa leveranser och presentarrangemang" },
@@ -116,9 +116,7 @@ export default function Home() {
             <span className="text-3xl sm:text-5xl md:text-6xl font-light">Skapade från min Blomsterstudio</span>
           </h1>
           <p className="text-base sm:text-xl text-[#3D3D3D] mb-8 sm:mb-12 leading-relaxed max-w-2xl mx-auto font-normal">
-            Från min studio på gården i Brottby skapar jag personliga och kreativa blomsterarrangemang/buketter 
-            med hantverksmässig fingerkänsla och blomsterglädje. Varje bukett/arrangemang är unik och inspirerad av just dina önskemål. 
-            Med flexibel leverans eller upphämtning runtom Stockholm.
+            Från min blomsterstudio i Brottby skapar jag personliga buketter och arrangemang – alltid med fingertoppskänsla, värme och kreativitet. Varje bukett är unik och personlig. Leverans eller upphämtning i hela Norrort/Stockholm.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
             <a href="/tjanster#kontakt" className="px-8 sm:px-10 py-3 sm:py-4 bg-[#A8B69B] text-white rounded-full hover:bg-[#8B956D] transition-all shadow-lg hover:shadow-xl text-xs sm:text-sm uppercase tracking-wider">
@@ -131,58 +129,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Image Gallery Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-b from-white to-[#F5F1E8]">
+      {/* Portfolio Gallery Section */}
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-white to-[#F9F7F4]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
-              <Image 
-                src="/flower/bröllopcornelia1.JPG"
-                alt="Bröllopsblommor Cornelia"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
-              <Image 
-                src="/flower/bröllopmarianna2.JPG"
-                alt="Bröllopsblommor Marianna"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
-              <Image 
-                src="/flower/bröllopmarianne1.JPG"
-                alt="Bröllopsblommor Marianne"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
-              <Image 
-                src="/flower/brollop-gallery.jpeg"
-                alt="Bröllopsblommor"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
-              <Image 
-                src="/flower/Bild 2 webbsida blommor.JPG"
-                alt="Vackra blommor"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
-              <Image 
-                src="/flower/bild webbsida blommor.JPG"
-                alt="Blomsterarrangemang"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl text-[#4A4A48] mb-4">
+              <span className="handwritten text-[#A8B69B]">Portfolio</span> & Inspiration
+            </h2>
+            <p className="text-[#5A6B4D] max-w-2xl mx-auto text-base sm:text-lg font-semibold">
+              Alla buketter skapas efter dina önskemål – ingen bukett är den andra lik.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { src: "/flower/färggladbukett.JPG", title: "Färglad Bukett", category: "Arrangemang" },
+              { src: "/flower/färgbudbukett.JPG", title: "Färgglad Brudbukett", category: "Bröllop" },
+              { src: "/flower/pudervackerbukett.JPG", title: "Puderbukett", category: "Arrangemang" },
+              { src: "/flower/brollop-gallery.jpeg", title: "Bröllopsdekor", category: "Bröllop" },
+              { src: "/flower/Bild 2 webbsida blommor.JPG", title: "Vardagsbukett", category: "Arrangemang" },
+              { src: "/flower/bild webbsida blommor.JPG", title: "Säsongsarrangemang", category: "Arrangemang" }
+            ].map((item, i) => (
+              <div key={i} className="group">
+                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
+                  <Image 
+                    src={item.src}
+                    alt={item.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -212,7 +191,7 @@ export default function Home() {
                     />
                   </div>
                   <h3 className="text-2xl handwritten text-[#4A4A48] mb-2">{service.name}</h3>
-                  <p className="text-[#4A4A48]/60 text-sm leading-relaxed mb-4">{service.description}</p>
+                  <p className="text-[#4A4A48]/60 text-sm leading-relaxed mb-4 whitespace-pre-line">{service.description}</p>
                   <a href="/tjanster#kontakt" className="text-[#A8B69B] hover:text-[#8B956D] text-sm uppercase tracking-wider">
                     Kontakta mig →
                   </a>
@@ -225,8 +204,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-12 sm:mt-16">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
               <Image 
-                src="/flower/bröllop2.JPG"
-                alt="Bröllopsarrangemang 2"
+                src="/flower/bröllopcorneiliatvå.JPG"
+                alt="Bröllopsarrangemang Cornelia"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -241,8 +220,8 @@ export default function Home() {
             </div>
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-lg group">
               <Image 
-                src="/flower/bröllopellinor.jpeg"
-                alt="Bröllopsarrangemang Ellinor"
+                src="/flower/syrenbukett.JPG"
+                alt="Syrenbukett"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
@@ -297,10 +276,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
             {[
-              { step: "1", title: "Kontakta Mig", description: "Fyll i formuläret eller ring mig direkt" },
+              { step: "1", title: "Kontakta Mig", description: "Fyll i formuläret, mejla info@florabysusanna.se eller ring mig direkt på 0737131884" },
               { step: "2", title: "Berätta Din Vision", description: "Dela dina önskemål, färger och stil" },
-              { step: "3", title: "Jag Skapar", description: "Jag komponerar ditt unika arrangemang" },
-              { step: "4", title: "Leverans/Upphämtning", description: "Du väljer om du hämtar eller får leverans" },
+              { step: "3", title: "Jag Skapar", description: "Jag komponerar ditt unika arrangemang eller binder din unika bukett." },
+              { step: "4", title: "Leverans/Upphämtning", description: "Du kan välja om du önskar att hämta eller få leverans i Brottby, Vallentuna, Åkersberga, Täby, Danderyd och Stockholm." },
             ].map((item, i) => (
               <div key={i} className="text-center">
                 <div className="w-16 h-16 bg-[#A8B69B] text-white rounded-full flex items-center justify-center text-2xl font-light mx-auto mb-4">
@@ -324,9 +303,111 @@ export default function Home() {
           <p className="text-[#4A4A48]/70 text-base sm:text-xl mb-8 sm:mb-10 font-light">
             Kontakta mig idag så pratar vi om dina önskemål och skapar det perfekta blomsterarrangemanget för dig
           </p>
-          <a href="/tjanster#kontakt" className="inline-block px-10 sm:px-12 py-4 sm:py-5 bg-[#D4B5A8] text-white rounded-full hover:bg-[#C9A79E] transition-all shadow-lg hover:shadow-xl text-xs sm:text-sm uppercase tracking-wider">
+          <a href="#kontakt" className="inline-block px-10 sm:px-12 py-4 sm:py-5 bg-[#D4B5A8] text-white rounded-full hover:bg-[#C9A79E] transition-all shadow-lg hover:shadow-xl text-xs sm:text-sm uppercase tracking-wider">
             Kontakta Mig Nu
           </a>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="kontakt" className="py-16 sm:py-20 px-4 sm:px-6 bg-[#2D3D2A] text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-light mb-4">Kontakta Flora by Susanna</h2>
+            <div className="w-24 h-1 bg-[#A8B69B] mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Info */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl font-medium mb-6 text-[#A8B69B]">Kontaktuppgifter</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-[#A8B69B]/20 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-[#A8B69B]">📞</span>
+                    </div>
+                    <div>
+                      <p className="font-medium">Telefon</p>
+                      <p className="text-gray-300">073-713 1884</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-[#A8B69B]/20 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-[#A8B69B]">✉️</span>
+                    </div>
+                    <div>
+                      <p className="font-medium">Email</p>
+                      <p className="text-gray-300">Info@florabysusanna.se</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-[#A8B69B]/20 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-[#A8B69B]">📍</span>
+                    </div>
+                    <div>
+                      <p className="font-medium">Plats</p>
+                      <p className="text-gray-300">Blomsterstudio i Brottby, norr om Stockholm</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-medium mb-4 text-[#A8B69B]">Öppettider & Service</h3>
+                <div className="space-y-2 text-gray-300">
+                  <p>🕒 <strong>Konsultationer:</strong> Efter överenskommelse</p>
+                  <p>🚚 <strong>Leverans:</strong> Enligt överenskommelse inom Norrort och stockholm området</p>
+                  <p>🌸 <strong>Specialitet:</strong> Personliga buketter, bröllop och begravning.</p>
+                  <p>💍 <strong>Bröllop:</strong> Helgfri konsultation</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="bg-white/5 rounded-2xl p-8 backdrop-blur-sm">
+              <h3 className="text-xl font-medium mb-6 text-[#A8B69B]">Skicka En Förfrågan</h3>
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <input 
+                    type="text" 
+                    placeholder="Ditt namn" 
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors"
+                  />
+                  <input 
+                    type="email" 
+                    placeholder="Din email" 
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors"
+                  />
+                </div>
+                <input 
+                  type="tel" 
+                  placeholder="Telefonnummer" 
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors"
+                />
+                <select className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-[#A8B69B] focus:outline-none transition-colors">
+                  <option value="">Välj tjänst</option>
+                  <option value="brollop">Bröllop</option>
+                  <option value="bukett">Buketter & Arrangemang</option>
+                  <option value="begravning">Begravningar</option>
+                  <option value="hogtider">Högtider</option>
+                  <option value="evenemang">Evenemang</option>
+                  <option value="foretag">Företag</option>
+                </select>
+                <textarea 
+                  placeholder="Berätta om dina önskemål, färger, stil och datum..."
+                  rows={4}
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors resize-none"
+                ></textarea>
+                <button 
+                  type="submit"
+                  className="w-full px-6 py-3 bg-[#A8B69B] text-white rounded-lg hover:bg-[#8B956D] transition-colors font-medium"
+                >
+                  🌸 Skicka Förfrågan
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </section>
     </div>
