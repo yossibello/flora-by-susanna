@@ -5,11 +5,12 @@ import nodemailer from 'nodemailer';
 export async function POST(request: Request) {
   try {
     const data = await request.json();
+    console.log('Received form data:', data);
     
     // Save to database
     const inquiry = await prisma.inquiry.create({
       data: {
-        name: data.name,
+        name: data.name || data.contactPerson || data.companyName || 'Ej angivet',
         email: data.email,
         phone: data.phone || null,
         inquiryType: data.inquiryType || data.serviceType || data.type || 'general',
@@ -157,16 +158,18 @@ export async function POST(request: Request) {
 </html>
     `;
 
-    // Send email notification
-    try {
+    // Send email notification (with timeout to prevent hanging)
+    const sendEmailWithTimeout = async () => {
       const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: Number(process.env.EMAIL_PORT),
-        secure: true,
+        secure: false, // Use STARTTLS for port 587
         auth: {
           user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASSWORD,
         },
+        connectionTimeout: 10000, // 10 second timeout
+        greetingTimeout: 10000,
       });
 
       await transporter.sendMail({
@@ -175,10 +178,13 @@ export async function POST(request: Request) {
         subject: emailSubject,
         html: emailBody,
       });
-    } catch (emailError) {
+    };
+
+    // Send email in background - don't wait for it
+    sendEmailWithTimeout().catch(emailError => {
       console.error('Error sending email:', emailError);
-      // Don't fail the request if email fails - data is still saved in database
-    }
+      // Email failed but data is saved in database
+    });
 
     return NextResponse.json({ 
       success: true, 
