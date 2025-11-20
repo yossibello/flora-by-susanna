@@ -23,7 +23,7 @@ export default function BestallPage() {
       style: formData.get('stil'),
       deliveryMethod: formData.get('leverans'),
       deliveryAddress: formData.get('adress'),
-      message: formData.get('onskemal'),
+      message: formData.get('meddelande'),
       inquiryType: 'bukett',
     };
 
