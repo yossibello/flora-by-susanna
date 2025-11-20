@@ -163,15 +163,20 @@ export async function POST(request: Request) {
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
 
+      const resendFrom = process.env.RESEND_FROM || process.env.RESEND_FROM_EMAIL || `Flora by Susanna <onboarding@resend.dev>`;
+      const notifyTo = process.env.EMAIL_USER || process.env.RESEND_TO_EMAIL || 'info@florabysusanna.se';
+
+      console.log('Using resendFrom:', resendFrom, 'notifyTo:', notifyTo);
+
       const result = await resend.emails.send({
-        from: 'Flora by Susanna <onboarding@resend.dev>', // Use your verified domain once you have it
-        to: 'info@florabysusanna.se',
+        from: resendFrom,
+        to: notifyTo,
         subject: emailSubject,
         html: emailBody,
       });
 
       console.log('✅ Resend API response:', result);
-      console.log('Email sent successfully to info@florabysusanna.se via Resend');
+      console.log(`Email sent successfully to ${notifyTo} via Resend`);
     } catch (emailError) {
       console.error('❌ Error sending email via Resend:', emailError);
       console.error('Full error details:', JSON.stringify(emailError, null, 2));
