@@ -1,6 +1,52 @@
+'use client';
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function BegravningPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    const formData = new FormData(e.currentTarget);
+    
+    const data = {
+      name: formData.get('namn') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('telefon') as string,
+      funeralDate: formData.get('datum') as string,
+      funeralType: formData.get('typ') as string,
+      colors: formData.get('fargtema') as string,
+      consultation: formData.get('konsultation') as string,
+      message: formData.get('meddelande') as string,
+      inquiryType: 'begravning'
+    };
+
+    try {
+      const response = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmitMessage('Tack för din förfrågan! Vi återkommer inom 24 timmar.');
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setSubmitMessage(result.error || 'Något gick fel. Försök igen.');
+      }
+    } catch (error) {
+      setSubmitMessage('Kunde inte skicka förfrågan. Kontrollera din internetanslutning.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -333,15 +379,17 @@ export default function BegravningPage() {
               </p>
             </div>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="namn" className="block text-[#6B5B4F] font-medium mb-2">Namn *</label>
                   <input 
                     type="text" 
                     id="namn" 
+                    name="namn"
                     required
-                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors disabled:opacity-50"
                   />
                 </div>
                 <div>
@@ -349,8 +397,10 @@ export default function BegravningPage() {
                   <input 
                     type="email" 
                     id="email" 
+                    name="email"
                     required
-                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors disabled:opacity-50"
                   />
                 </div>
               </div>
@@ -361,15 +411,19 @@ export default function BegravningPage() {
                   <input 
                     type="tel" 
                     id="telefon" 
+                    name="telefon"
                     required
-                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors disabled:opacity-50"
                   />
                 </div>
                 <div>
                   <label htmlFor="typ" className="block text-[#6B5B4F] font-medium mb-2">Typ av arrangemang</label>
                   <select 
                     id="typ" 
-                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors"
+                    name="typ"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors disabled:opacity-50"
                   >
                     <option value="">Välj typ</option>
                     <option value="liggande">Liggande bukett</option>
@@ -390,7 +444,9 @@ export default function BegravningPage() {
                   <input 
                     type="date" 
                     id="datum" 
-                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors"
+                    name="datum"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors disabled:opacity-50"
                   />
                 </div>
                 <div>
@@ -398,8 +454,10 @@ export default function BegravningPage() {
                   <input 
                     type="text" 
                     id="fargtema" 
+                    name="fargtema"
                     placeholder="T.ex. vit, rosa, favoritblommor..."
-                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors disabled:opacity-50"
                   />
                 </div>
               </div>
@@ -408,7 +466,9 @@ export default function BegravningPage() {
                 <label htmlFor="konsultation" className="block text-[#6B5B4F] font-medium mb-2">Vill ni boka en konsultation?</label>
                 <select 
                   id="konsultation" 
-                  className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors"
+                  name="konsultation"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors disabled:opacity-50"
                 >
                   <option value="">Välj alternativ</option>
                   <option value="ja-digitalt">Ja, gärna digitalt</option>
@@ -423,18 +483,27 @@ export default function BegravningPage() {
                 <label htmlFor="meddelande" className="block text-[#6B5B4F] font-medium mb-2">Meddelande</label>
                 <textarea 
                   id="meddelande" 
+                  name="meddelande"
                   rows={5}
                   placeholder="Berätta gärna om personen och era önskemål..."
-                  className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors resize-none"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg border-2 border-[#8B956D]/20 bg-white focus:outline-none focus:border-[#8B956D] transition-colors resize-none disabled:opacity-50"
                 ></textarea>
               </div>
+
+              {submitMessage && (
+                <div className={`text-center p-4 rounded-lg ${submitMessage.includes('Tack') ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+                  {submitMessage}
+                </div>
+              )}
 
               <div className="text-center pt-4">
                 <button 
                   type="submit"
-                  className="inline-block px-12 py-4 bg-[#8B956D] text-white rounded-full hover:bg-[#7A8B6F] transition-all shadow-lg hover:shadow-xl text-lg font-medium"
+                  disabled={isSubmitting}
+                  className="inline-block px-12 py-4 bg-[#8B956D] text-white rounded-full hover:bg-[#7A8B6F] transition-all shadow-lg hover:shadow-xl text-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Skicka förfrågan
+                  {isSubmitting ? '⏳ Skickar...' : 'Skicka förfrågan'}
                 </button>
                 <p className="text-[#6B5B4F] text-sm mt-4 italic">
                   Alla förfrågningar och konsultationer är helt kostnadsfria

@@ -1,6 +1,56 @@
+'use client';
+
 import Image from 'next/image'
+import { useState } from 'react';
 
 export default function BestallPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('namn'),
+      email: formData.get('email'),
+      phone: formData.get('telefon'),
+      preferredDate: formData.get('datum'),
+      budget: formData.get('budget'),
+      colors: formData.get('farger'),
+      style: formData.get('stil'),
+      deliveryMethod: formData.get('leverans'),
+      deliveryAddress: formData.get('adress'),
+      message: formData.get('onskemal'),
+      inquiryType: 'bukett',
+    };
+
+    try {
+      const response = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitMessage('Tack för din beställning! Vi återkommer inom 24 timmar.');
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setSubmitMessage('Ett fel uppstod. Vänligen försök igen eller kontakta oss direkt på info@florabysusanna.se');
+      }
+    } catch (error) {
+      setSubmitMessage('Ett fel uppstod. Vänligen försök igen eller kontakta oss direkt på info@florabysusanna.se');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -203,15 +253,17 @@ export default function BestallPage() {
             </p>
           </div>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="namn" className="block text-[#6B5B4F] font-medium mb-2">Namn *</label>
                 <input 
                   type="text" 
                   id="namn" 
+                  name="namn"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D]"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D] disabled:opacity-50"
                 />
               </div>
               <div>
@@ -219,8 +271,10 @@ export default function BestallPage() {
                 <input 
                   type="email" 
                   id="email" 
+                  name="email"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D]"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D] disabled:opacity-50"
                 />
               </div>
             </div>
@@ -231,16 +285,20 @@ export default function BestallPage() {
                 <input 
                   type="tel" 
                   id="telefon" 
+                  name="telefon"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D]"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D] disabled:opacity-50"
                 />
               </div>
               <div>
-                <label htmlFor="storlek" className="block text-[#6B5B4F] font-medium mb-2">Välj storlek *</label>
+                <label htmlFor="budget" className="block text-[#6B5B4F] font-medium mb-2">Välj storlek *</label>
                 <select 
-                  id="storlek" 
+                  id="budget" 
+                  name="budget"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D]"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D] disabled:opacity-50"
                 >
                   <option value="">Välj storlek</option>
                   <option value="liten">Liten – 399 kr</option>
@@ -251,12 +309,14 @@ export default function BestallPage() {
             </div>
 
             <div>
-              <label htmlFor="fargtema" className="block text-[#6B5B4F] font-medium mb-2">Färgtema / Stil</label>
+              <label htmlFor="farger" className="block text-[#6B5B4F] font-medium mb-2">Färgtema / Stil</label>
               <input 
                 type="text" 
-                id="fargtema" 
+                id="farger" 
+                name="farger"
                 placeholder="T.ex. romantisk rosa, vit & grön, överraska mig..."
-                className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D]"
+                disabled={isSubmitting}
+                className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D] disabled:opacity-50"
               />
             </div>
 
@@ -265,8 +325,10 @@ export default function BestallPage() {
                 <label htmlFor="leverans" className="block text-[#6B5B4F] font-medium mb-2">Leverans eller upphämtning? *</label>
                 <select 
                   id="leverans" 
+                  name="leverans"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D]"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D] disabled:opacity-50"
                 >
                   <option value="">Välj alternativ</option>
                   <option value="upphamtning">Upphämtning i Brottby</option>
@@ -278,8 +340,10 @@ export default function BestallPage() {
                 <input 
                   type="date" 
                   id="datum" 
+                  name="datum"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D]"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D] disabled:opacity-50"
                 />
               </div>
             </div>
@@ -287,10 +351,12 @@ export default function BestallPage() {
             <div>
               <label htmlFor="adress" className="block text-[#6B5B4F] font-medium mb-2">Adress (om du valt leverans)</label>
               <input 
-                type="text" 
+                type="text"
+                name="adress"
+                disabled={isSubmitting} 
                 id="adress" 
                 placeholder="Gatuadress, postnummer och ort"
-                className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D]"
+                className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D] disabled:opacity-50"
               />
             </div>
 
@@ -298,18 +364,27 @@ export default function BestallPage() {
               <label htmlFor="meddelande" className="block text-[#6B5B4F] font-medium mb-2">Meddelande</label>
               <textarea 
                 id="meddelande" 
+                name="meddelande"
                 rows={5}
+                disabled={isSubmitting}
                 placeholder="Berätta gärna mer om vad du önskar, eller om det är en speciell gåva..."
-                className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D]"
+                className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D] disabled:opacity-50"
               ></textarea>
             </div>
+
+            {submitMessage && (
+              <div className={`text-center p-4 rounded-lg ${submitMessage.includes('Tack') ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+                {submitMessage}
+              </div>
+            )}
 
             <div className="text-center">
               <button 
                 type="submit"
-                className="inline-block px-12 py-4 bg-[#8B956D] text-white rounded-full hover:bg-[#7A8B6F] transition-all shadow-lg hover:shadow-xl text-lg font-medium"
+                disabled={isSubmitting}
+                className="inline-block px-12 py-4 bg-[#8B956D] text-white rounded-full hover:bg-[#7A8B6F] transition-all shadow-lg hover:shadow-xl text-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                🌸 Skicka förfrågan
+                {isSubmitting ? '⏳ Skickar...' : '🌸 Skicka förfrågan'}
               </button>
               <p className="text-[#6B5B4F] text-sm mt-4">
                 Jag svarar vanligtvis inom 24 timmar och alla förfrågningar är helt kostnadsfria
