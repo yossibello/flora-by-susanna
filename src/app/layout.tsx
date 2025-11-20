@@ -17,8 +17,38 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Flora by Susanna - Artisan Flower Studio in Stockholm",
-  description: "Handcrafted botanical arrangements with bohemian charm in Stockholm, Sweden",
+  title: {
+    default: "Flora by Susanna - Florist i Brottby, Stockholm",
+    template: "%s | Flora by Susanna"
+  },
+  description: "Handgjorda buketter och floristiska arrangemang i Brottby, Stockholm. Bröllopsblommor, begravning, företagstjänster och säsongsblommor. Beställ din bukett idag!",
+  keywords: ["florist", "florist brottby", "florist stockholm", "buketter", "bröllopsblommor", "begravningsblommor", "företagsflorist", "blommor stockholm", "handgjorda buketter", "säsongsblommor"],
+  authors: [{ name: "Susanna Jalmhagen" }],
+  creator: "Flora by Susanna",
+  publisher: "Flora by Susanna",
+  metadataBase: new URL('https://florabysusanna.se'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: "Flora by Susanna - Florist i Brottby, Stockholm",
+    description: "Handgjorda buketter och floristiska arrangemang. Bröllop, begravning och företagstjänster.",
+    url: 'https://florabysusanna.se',
+    siteName: 'Flora by Susanna',
+    locale: 'sv_SE',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +57,45 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${montserrat.variable}`}>
+    <html lang="sv" className={`${cormorant.variable} ${montserrat.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Florist",
+              "name": "Flora by Susanna",
+              "image": "https://florabysusanna.se/flower/bukett.JPG",
+              "description": "Handgjorda buketter och floristiska arrangemang i Brottby, Stockholm",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Brottby",
+                "addressRegion": "Stockholm",
+                "addressCountry": "SE"
+              },
+              "telephone": "+46737131884",
+              "email": "info@florabysusanna.se",
+              "url": "https://florabysusanna.se",
+              "priceRange": "399-899 SEK",
+              "areaServed": [
+                "Brottby",
+                "Vallentuna",
+                "Åkersberga",
+                "Täby",
+                "Stockholm"
+              ],
+              "serviceType": [
+                "Buketter",
+                "Bröllopsblommor",
+                "Begravningsblommor",
+                "Företagsflorist",
+                "Säsongsblommor"
+              ]
+            })
+          }}
+        />
+      </head>
       <body className={`${montserrat.className} antialiased`}>
         {/* Romantic Header with Botanical Elements */}
         <nav className="bg-[#F5F1E8] border-b border-[#A8B69B]/20 sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
