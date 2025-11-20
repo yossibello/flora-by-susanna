@@ -249,6 +249,9 @@ export default function BestallPage() {
               ✨ Beställ din bukett här
             </h2>
             <p className="text-[#6B5B4F] text-xl mb-2">
+              Beställning görs 3 dagar i förväg för att rätt blommor ska beställas hem.
+            </p>
+            <p className="text-[#6B5B4F] text-xl mb-2">
               Jag svarar vanligen inom 24 timmar – alla förfrågningar är kostnadsfria.
             </p>
           </div>
