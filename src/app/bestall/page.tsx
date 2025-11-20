@@ -233,6 +233,9 @@ export default function BestallPage() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl sm:text-5xl handwritten text-[#7A6B5D] mb-6">🚚 Leverans eller upphämtning</h2>
           <p className="text-[#6B5B4F] text-lg sm:text-xl leading-relaxed mb-4">
+            Gör din beställning 3 dagar i förväg för att rätt blommor ska beställas.
+          </p>
+          <p className="text-[#6B5B4F] text-lg sm:text-xl leading-relaxed mb-4">
             Du kan hämta din bukett hos mig i Brottby eller få den levererad till <strong>Brottby, Vallentuna, Åkersberga, Täby och Stockholm</strong>.
           </p>
           <p className="text-[#6B5B4F] text-lg sm:text-xl leading-relaxed">
@@ -249,7 +252,7 @@ export default function BestallPage() {
               ✨ Beställ din bukett här
             </h2>
             <p className="text-[#6B5B4F] text-xl mb-2">
-              Beställning görs 3 dagar i förväg för att rätt blommor ska beställas hem.
+              Gör din beställning 3 dagar i förväg för att rätt blommor ska beställas.
             </p>
             <p className="text-[#6B5B4F] text-xl mb-2">
               Jag svarar vanligen inom 24 timmar – alla förfrågningar är kostnadsfria.
