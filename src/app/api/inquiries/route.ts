@@ -181,10 +181,20 @@ export async function POST(request: Request) {
     };
 
     // Send email in background - don't wait for it
-    sendEmailWithTimeout().catch(emailError => {
-      console.error('Error sending email:', emailError);
-      // Email failed but data is saved in database
-    });
+    sendEmailWithTimeout()
+      .then(() => {
+        console.log('Email sent successfully to info@florabysusanna.se');
+      })
+      .catch(emailError => {
+        console.error('Error sending email:', emailError);
+        console.error('Email config:', {
+          host: process.env.EMAIL_HOST,
+          port: process.env.EMAIL_PORT,
+          user: process.env.EMAIL_USER,
+          hasPassword: !!process.env.EMAIL_PASSWORD
+        });
+        // Email failed but data is saved in database
+      });
 
     return NextResponse.json({ 
       success: true, 
