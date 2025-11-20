@@ -163,16 +163,18 @@ export async function POST(request: Request) {
     try {
       const resend = new Resend(process.env.RESEND_API_KEY);
 
-      await resend.emails.send({
+      const result = await resend.emails.send({
         from: 'Flora by Susanna <onboarding@resend.dev>', // Use your verified domain once you have it
         to: 'info@florabysusanna.se',
         subject: emailSubject,
         html: emailBody,
       });
 
-      console.log('✅ Email sent successfully to info@florabysusanna.se via Resend');
+      console.log('✅ Resend API response:', result);
+      console.log('Email sent successfully to info@florabysusanna.se via Resend');
     } catch (emailError) {
       console.error('❌ Error sending email via Resend:', emailError);
+      console.error('Full error details:', JSON.stringify(emailError, null, 2));
       // Email failed but data is saved in database - continue anyway
     }
 
