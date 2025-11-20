@@ -106,10 +106,10 @@ export default function BestallPage() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {/* Liten bukett */}
-            <div className="romantic-card p-8 rounded-2xl bg-gradient-to-br from-[#F5F1E8] to-[#D4B5A8]/10">
+            <div className="romantic-card p-8 rounded-2xl bg-gradient-to-br from-[#F5F1E8] to-[#A8B69B]/10">
               <div className="relative aspect-square rounded-xl overflow-hidden mb-6">
                 <Image 
-                  src="/flower/bukettliten.JPG"
+                  src="/flower/bukettliten.jpg"
                   alt="Liten bukett"
                   fill
                   className="object-cover"
@@ -150,7 +150,7 @@ export default function BestallPage() {
             <div className="romantic-card p-8 rounded-2xl bg-gradient-to-br from-[#F5F1E8] to-[#D4B5A8]/10">
               <div className="relative aspect-square rounded-xl overflow-hidden mb-6">
                 <Image 
-                  src="/flower/roslyxbukett.JPG"
+                  src="/flower/Roslyxbukett.JPG"
                   alt="Stor bukett"
                   fill
                   className="object-cover"
