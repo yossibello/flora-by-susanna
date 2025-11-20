@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image'
+import { useState } from 'react';
 
 const ServiceIcon = ({ type }: { type: string }) => {
   const icons = {
@@ -86,6 +89,48 @@ const ServiceIcon = ({ type }: { type: string }) => {
 };
 
 export default function Home() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('namn'),
+      email: formData.get('email'),
+      phone: formData.get('telefon'),
+      serviceType: formData.get('tjanst'),
+      message: formData.get('meddelande'),
+      inquiryType: 'allmän',
+    };
+
+    try {
+      const response = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitMessage('Tack för din förfrågan! Vi återkommer inom 24 timmar.');
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setSubmitMessage('Ett fel uppstod. Vänligen försök igen eller kontakta oss direkt på info@florabysusanna.se');
+      }
+    } catch (error) {
+      setSubmitMessage('Ett fel uppstod. Vänligen försök igen eller kontakta oss direkt på info@florabysusanna.se');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const services = [
     { name: "Bröllop", type: "wedding", image: "/flower/brollop.JPG", description: "Allt det vackra för er speciella dag - Brudbukett, Corsage och Arrangemang\nPrisexempel: Brudbukett 900kr - 3200kr" },
     { name: "Buketter & Arrangemang", type: "bouquet", image: "/flower/bukett.JPG", description: "För födelsedagar, en hälsning och för livets alla tillfällen\nPrisexempel: Bukett 500kr - 2000kr" },
@@ -367,25 +412,36 @@ export default function Home() {
             {/* Contact Form */}
             <div className="bg-white/5 rounded-2xl p-8 backdrop-blur-sm">
               <h3 className="text-xl font-medium mb-6 text-[#A8B69B]">Skicka En Förfrågan</h3>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input 
                     type="text" 
+                    name="namn"
                     placeholder="Ditt namn" 
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors"
+                    required
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors disabled:opacity-50"
                   />
                   <input 
                     type="email" 
+                    name="email"
                     placeholder="Din email" 
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors"
+                    required
+                    disabled={isSubmitting}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors disabled:opacity-50"
                   />
                 </div>
                 <input 
                   type="tel" 
+                  name="telefon"
                   placeholder="Telefonnummer" 
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors disabled:opacity-50"
                 />
-                <select className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-[#A8B69B] focus:outline-none transition-colors">
+                <select 
+                  name="tjanst"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-[#A8B69B] focus:outline-none transition-colors disabled:opacity-50">
                   <option value="">Välj tjänst</option>
                   <option value="brollop">Bröllop</option>
                   <option value="bukett">Buketter & Arrangemang</option>
@@ -395,15 +451,23 @@ export default function Home() {
                   <option value="foretag">Företag</option>
                 </select>
                 <textarea 
+                  name="meddelande"
                   placeholder="Berätta om dina önskemål, färger, stil och datum..."
                   rows={4}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors resize-none"
+                  disabled={isSubmitting}
+                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:border-[#A8B69B] focus:outline-none transition-colors resize-none disabled:opacity-50"
                 ></textarea>
+                {submitMessage && (
+                  <div className={`p-3 rounded-lg ${submitMessage.includes('Tack') ? 'bg-green-500/20 text-green-100' : 'bg-red-500/20 text-red-100'}`}>
+                    {submitMessage}
+                  </div>
+                )}
                 <button 
                   type="submit"
-                  className="w-full px-6 py-3 bg-[#A8B69B] text-white rounded-lg hover:bg-[#8B956D] transition-colors font-medium"
+                  disabled={isSubmitting}
+                  className="w-full px-6 py-3 bg-[#A8B69B] text-white rounded-lg hover:bg-[#8B956D] transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  🌸 Skicka Förfrågan
+                  {isSubmitting ? '⏳ Skickar...' : '🌸 Skicka Förfrågan'}
                 </button>
               </form>
             </div>
