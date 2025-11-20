@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: false,
   },
+  // Ensure Prisma client is included in serverless build
+  outputFileTracingIncludes: {
+    '/api/**': ['./node_modules/.prisma/client/**/*'],
+  },
 };
 
 export default nextConfig;
