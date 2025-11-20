@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 export async function POST(request: Request) {
   try {
@@ -158,38 +158,21 @@ export async function POST(request: Request) {
 </html>
     `;
 
-    // Send email notification
-    console.log('Attempting to send email...');
+    // Send email notification using Resend (Vercel-friendly)
+    console.log('Attempting to send email via Resend...');
     try {
-      const transporter = nodemailer.createTransport({
-        host: process.env.EMAIL_HOST,
-        port: Number(process.env.EMAIL_PORT),
-        secure: false, // Use STARTTLS for port 587
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASSWORD,
-        },
-        connectionTimeout: 5000, // 5 second timeout
-        socketTimeout: 5000,
-      });
+      const resend = new Resend(process.env.RESEND_API_KEY);
 
-      console.log('Sending email with config:', {
-        host: process.env.EMAIL_HOST,
-        port: process.env.EMAIL_PORT,
-        user: process.env.EMAIL_USER,
-        hasPassword: !!process.env.EMAIL_PASSWORD
-      });
-
-      await transporter.sendMail({
-        from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+      await resend.emails.send({
+        from: 'Flora by Susanna <onboarding@resend.dev>', // Use your verified domain once you have it
         to: 'info@florabysusanna.se',
         subject: emailSubject,
         html: emailBody,
       });
 
-      console.log('✅ Email sent successfully to info@florabysusanna.se');
+      console.log('✅ Email sent successfully to info@florabysusanna.se via Resend');
     } catch (emailError) {
-      console.error('❌ Error sending email:', emailError);
+      console.error('❌ Error sending email via Resend:', emailError);
       // Email failed but data is saved in database - continue anyway
     }
 
