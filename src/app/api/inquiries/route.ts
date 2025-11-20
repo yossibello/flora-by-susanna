@@ -158,8 +158,9 @@ export async function POST(request: Request) {
 </html>
     `;
 
-    // Send email notification (with timeout to prevent hanging)
-    const sendEmailWithTimeout = async () => {
+    // Send email notification
+    console.log('Attempting to send email...');
+    try {
       const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: Number(process.env.EMAIL_PORT),
@@ -168,8 +169,15 @@ export async function POST(request: Request) {
           user: process.env.EMAIL_USER,
           pass: process.env.EMAIL_PASSWORD,
         },
-        connectionTimeout: 10000, // 10 second timeout
-        greetingTimeout: 10000,
+        connectionTimeout: 5000, // 5 second timeout
+        socketTimeout: 5000,
+      });
+
+      console.log('Sending email with config:', {
+        host: process.env.EMAIL_HOST,
+        port: process.env.EMAIL_PORT,
+        user: process.env.EMAIL_USER,
+        hasPassword: !!process.env.EMAIL_PASSWORD
       });
 
       await transporter.sendMail({
@@ -178,23 +186,12 @@ export async function POST(request: Request) {
         subject: emailSubject,
         html: emailBody,
       });
-    };
 
-    // Send email in background - don't wait for it
-    sendEmailWithTimeout()
-      .then(() => {
-        console.log('Email sent successfully to info@florabysusanna.se');
-      })
-      .catch(emailError => {
-        console.error('Error sending email:', emailError);
-        console.error('Email config:', {
-          host: process.env.EMAIL_HOST,
-          port: process.env.EMAIL_PORT,
-          user: process.env.EMAIL_USER,
-          hasPassword: !!process.env.EMAIL_PASSWORD
-        });
-        // Email failed but data is saved in database
-      });
+      console.log('✅ Email sent successfully to info@florabysusanna.se');
+    } catch (emailError) {
+      console.error('❌ Error sending email:', emailError);
+      // Email failed but data is saved in database - continue anyway
+    }
 
     return NextResponse.json({ 
       success: true, 
