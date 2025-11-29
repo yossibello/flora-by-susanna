@@ -109,6 +109,9 @@ export default function BegravningPage() {
               <p className="text-[#6B5B4F] text-lg leading-relaxed">
                 Mjuk, vacker och harmonisk – placeras framför kistan.
               </p>
+              <p className="text-[#8B956D] font-semibold mt-4">
+                Pris exempel: 500 kr - 1000 kr
+              </p>
             </div>
 
             {/* Stående buketter */}
@@ -116,6 +119,9 @@ export default function BegravningPage() {
               <h3 className="text-2xl font-bold text-[#8B956D] mb-3">Stående buketter</h3>
               <p className="text-[#6B5B4F] text-lg leading-relaxed">
                 Ger höjd och uttryck – en fin sista hälsning från familj eller vänner.
+              </p>
+              <p className="text-[#8B956D] font-semibold mt-4">
+                Pris exempel: 700 kr - 2000 kr
               </p>
             </div>
 
@@ -125,21 +131,30 @@ export default function BegravningPage() {
               <p className="text-[#6B5B4F] text-lg leading-relaxed">
                 Traditionella eller personliga kransar som symboliserar evighet och minnen.
               </p>
+              <p className="text-[#8B956D] font-semibold mt-4">
+                Pris exempel: 2500 kr - 6000 kr Beroende på storlek och blommor
+              </p>
             </div>
 
             {/* Hjärtan */}
             <div className="romantic-card p-8 rounded-2xl bg-white">
-              <h3 className="text-2xl font-bold text-[#8B956D] mb-3">Hjärtan</h3>
+              <h3 className="text-2xl font-bold text-[#8B956D] mb-3">Hjärtan - Öppet eller fyllt</h3>
               <p className="text-[#6B5B4F] text-lg leading-relaxed">
                 Ett varmt och kärleksfullt arrangemang – ett personligt val för nära anhöriga.
+              </p>
+              <p className="text-[#8B956D] font-semibold mt-4">
+                Pris exempel: 2400 kr - 5000 kr Beroende på storlek och blommor
               </p>
             </div>
 
             {/* Urndekorationer */}
             <div className="romantic-card p-8 rounded-2xl bg-white">
-              <h3 className="text-2xl font-bold text-[#8B956D] mb-3">Urndekorationer</h3>
+              <h3 className="text-2xl font-bold text-[#8B956D] mb-3">Urndekorationer - Olika stilar</h3>
               <p className="text-[#6B5B4F] text-lg leading-relaxed">
                 Mjuka, omslutande arrangemang som omfamnar och hedrar urnan.
+              </p>
+              <p className="text-[#8B956D] font-semibold mt-4">
+                Pris exempel: 2500 kr - 4000 kr
               </p>
             </div>
 
@@ -148,6 +163,9 @@ export default function BegravningPage() {
               <h3 className="text-2xl font-bold text-[#8B956D] mb-3">Kistdekorationer</h3>
               <p className="text-[#6B5B4F] text-lg leading-relaxed">
                 Stora personliga arrangemang som berättar något om personen och livet som levts.
+              </p>
+              <p className="text-[#8B956D] font-semibold mt-4">
+                Pris exempel: 2999 kr - 6000 kr Beroende på storlek
               </p>
             </div>
           </div>

@@ -64,14 +64,14 @@ export default function BestallPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#F5F1E8]/70 via-[#F5F1E8]/60 to-[#E8F0E0]/50"></div>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <h1 className="text-6xl sm:text-7xl md:text-8xl font-serif mb-4 text-[#7A8B6F]">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl font-serif mb-6 text-[#7A8B6F]">
             Beställ din personliga bukett
           </h1>
-          <p className="text-lg sm:text-xl text-[#6B5B4F] mb-4 leading-relaxed max-w-2xl mx-auto font-normal">
-            Handgjorda buketter skapade efter säsong, dina önskemål och dina färger.
+          <p className="text-lg sm:text-xl text-[#6B5B4F] mb-6 leading-relaxed max-w-2xl mx-auto font-normal">
+            Handgjorda buketter skapade efter säsong, dina önskemål och dina färger. Perfekt för födelsedagar, gåvor, helger eller när du vill överraska någon du tycker om.
           </p>
-          <p className="text-base sm:text-lg text-[#6B5B4F] mb-10 sm:mb-14 leading-relaxed max-w-2xl mx-auto font-normal">
-            Perfekt för födelsedagar, gåvor, helger eller när du vill överraska någon du tycker om.
+          <p className="text-base sm:text-lg text-[#6B5B4F] mb-10 sm:mb-14 leading-relaxed max-w-2xl mx-auto font-semibold">
+            Beställning med leverans i Vallentuna, Täby, Norrort & Stockholm.
           </p>
           <a 
             href="#kontakt" 
@@ -79,19 +79,6 @@ export default function BestallPage() {
           >
             Beställ din bukett
           </a>
-        </div>
-      </section>
-
-      {/* Introduktionstext */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[#6B5B4F] text-lg sm:text-xl leading-relaxed mb-6">
-            Önskar du beställa en härlig födelsedagsbukett, uppvakta någon du håller kär eller skicka en omtanke? 
-            Hos mig beställer du en handgjord bukett skapad i min blomsterstudio i Brottby – alltid med säsongens vackraste blommor och mycket omtanke.
-          </p>
-          <p className="text-[#6B5B4F] text-lg sm:text-xl leading-relaxed">
-            Varje bukett görs efter dina färger, stil och önskemål. Beställning görs <strong>3 dagar i förväg</strong> för att rätt blommor ska beställas hem.
-          </p>
         </div>
       </section>
 
@@ -191,7 +178,7 @@ export default function BestallPage() {
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-[#7A6B5D] mb-2">Skicka din förfrågan</h3>
-                <p className="text-[#6B5B4F] text-lg">Via formuläret eller Instagram/mejl.</p>
+                <p className="text-[#6B5B4F] text-lg">Via formuläret, Mobil eller Instagram/mejl.</p>
               </div>
             </div>
 
@@ -251,11 +238,14 @@ export default function BestallPage() {
             <h2 className="text-4xl sm:text-5xl handwritten text-[#7A6B5D] mb-4">
               ✨ Beställ din bukett här
             </h2>
-            <p className="text-[#6B5B4F] text-xl mb-2">
+            <p className="text-[#6B5B4F] text-xl mb-2 leading-relaxed">
               Gör din beställning 3 dagar i förväg för att rätt blommor ska beställas.
             </p>
-            <p className="text-[#6B5B4F] text-xl mb-2">
-              Jag svarar vanligen inom 24 timmar – alla förfrågningar är kostnadsfria.
+            <p className="text-[#6B5B4F] text-xl mb-2 leading-relaxed">
+              Det går även att ringa <a href="tel:0737131884" className="font-semibold text-[#8B956D] hover:underline">073-713 18 84</a> för beställning.
+            </p>
+            <p className="text-[#6B5B4F] text-xl mb-2 leading-relaxed">
+              Jag svarar vanligen inom 24 timmar – alla förfrågningar är kostnadsfria
             </p>
           </div>
 
