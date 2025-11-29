@@ -347,6 +347,7 @@ export default function BestallPage() {
                   type="date" 
                   id="datum" 
                   name="datum"
+                  min={new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
                   required
                   disabled={isSubmitting}
                   className="w-full px-4 py-3 rounded-lg border border-[#D4B5A8] focus:outline-none focus:border-[#8B956D] disabled:opacity-50"

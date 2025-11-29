@@ -164,10 +164,10 @@ export default function Home() {
             Från min blomsterstudio i Brottby skapar jag personliga buketter och arrangemang – alltid med fingertoppskänsla, värme och kreativitet. Varje bukett är unik och personlig. Leverans eller upphämtning i hela Norrort/Stockholm.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-            <a href="/tjanster#kontakt" className="px-8 sm:px-10 py-3 sm:py-4 bg-[#A8B69B] text-white rounded-full hover:bg-[#8B956D] transition-all shadow-lg hover:shadow-xl text-xs sm:text-sm uppercase tracking-wider">
+            <a href="/bestall#kontakt" className="px-8 sm:px-10 py-3 sm:py-4 bg-[#A8B69B] text-white rounded-full hover:bg-[#8B956D] transition-all shadow-lg hover:shadow-xl text-xs sm:text-sm uppercase tracking-wider">
               Beställ Nu
             </a>
-            <a href="/tjanster" className="px-8 sm:px-10 py-3 sm:py-4 border-2 border-[#A8B69B] text-[#8B956D] rounded-full hover:bg-[#A8B69B] hover:text-white transition-all text-xs sm:text-sm uppercase tracking-wider">
+            <a href="#tjanster" className="px-8 sm:px-10 py-3 sm:py-4 border-2 border-[#A8B69B] text-[#8B956D] rounded-full hover:bg-[#A8B69B] hover:text-white transition-all text-xs sm:text-sm uppercase tracking-wider">
               Se Mina Tjänster
             </a>
           </div>
@@ -212,7 +212,7 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6">
+      <section id="tjanster" className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-4xl sm:text-5xl md:text-6xl text-[#000000] mb-4">
