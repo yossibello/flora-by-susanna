@@ -181,9 +181,6 @@ export default function Home() {
             <h2 className="text-4xl sm:text-5xl md:text-6xl text-[#4A4A48] mb-4">
               <span className="handwritten text-[#A8B69B]">Portfolio</span> & Inspiration
             </h2>
-            <p className="text-[#5A6B4D] max-w-2xl mx-auto text-base sm:text-lg font-semibold">
-              Alla buketter skapas efter dina önskemål – ingen bukett är den andra lik.
-            </p>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
